@@ -1,0 +1,19 @@
+ if (question != undefined){
+
+            Resposta.findAll({
+                where: {questionId: question.Id} -->
+            }).then (ans =>{
+                res.render("lookquestion",{
+                question: question,
+                ans: ans
+                })
+            })
+        }else{
+            res.redirect("/")
+        }
+
+
+          <% answers.forEach(ans => {%>
+                <%= answers.answerBody %>
+            <%})%>
+            

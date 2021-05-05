@@ -1,0 +1,44 @@
+<%- include ('partials/header.ejs') %>
+
+
+
+    <body>
+        <%- include ('partials/navbar.ejs') %>
+        <div class = "container">
+            <hr>
+            <h1>Perguntas</h1>
+            <hr>
+            <a href="/quest" class = "btn btn-primary">Perguntar</a>
+            <hr>
+            <form method="POST" action = "/">
+                <label for="tipo">Ordenação</label>
+                <select name="tipo" id="tipo" class=" col-md-4 form-control">
+                    <option value= "id">Padrão</option>
+                    <option value="title" >Titulo</option>
+                    <option value="description" >Descrição</option>
+                </select>
+                <br>
+                <button class= "btn btn-primary">Ordenar</button>
+                <br>
+            </form>
+            <% question.forEach(question => { %>
+            <br>
+            <div class = "card">
+                <div class="card-body">
+                    <p> <%= question.title %> </p>
+                </div>
+                <div class="card-footer">
+                    <a href="/lookquestion/<%= question.id %>"><button class = "btn btn-primary">Responder</button></a>
+                </div>
+            </div>
+
+            
+                
+            <% }) %>
+        </div>
+    </body>
+    <%- include ('partials/footer.ejs') %>
+
+
+
+</html>
